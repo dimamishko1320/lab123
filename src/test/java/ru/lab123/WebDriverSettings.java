@@ -3,6 +3,7 @@ package ru.lab123;
 import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -13,11 +14,14 @@ import java.time.Duration;
 public class WebDriverSettings {
     ChromeDriver driver;
     WebDriverWait wait;
+    JavascriptExecutor javascriptExecutor;
+
     @Before
     public void setUp(){
         System.setProperty("webdriver.chrome.driver", "C:/Users/dimam/Downloads/chromedriver.exe");
         driver = new ChromeDriver();
-        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        javascriptExecutor = (JavascriptExecutor)driver;
     }
 
     public void authorizate(){
