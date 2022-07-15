@@ -1,41 +1,71 @@
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-
+import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.List;
 
 public class AccountPage {
-    private By contactsSubs = By.cssSelector("#collapseShowSubPanels > div > div:nth-child(9)");
+    private By contactsSubs = By.xpath("//*[@id='collapseShowSubPanels']/div/div[9]");
+    private By leadSubs = By.xpath("//*[@id='collapseShowSubPanels']/div/div[12]");
     private By closeButtons = By.cssSelector("button.close-button");
-    WebDriver driver;
+    private By linkContact = By.cssSelector("a.field-link[href*='contacts/record']");
+    private WebDriver driver;
+    JavascriptExecutor jse ;
+    WebDriverWait wait;
 
-    public AccountPage(WebDriver driver){
+    public AccountPage(WebDriver driver, JavascriptExecutor js, WebDriverWait webDriverWait){
         this.driver = driver;
+        this.wait = webDriverWait;
+        this.jse=js;
     }
 
     public void openContact(){
-        JavascriptExecutor jse = (JavascriptExecutor)driver;
-        jse.executeScript("arguments[0].scrollIntoView(true);", contactsSubs);
+        WebElement element = driver.findElement(contactsSubs);
+        jse.executeScript("arguments[0].scrollIntoView(true);", element);
         jse.executeScript("document.querySelector('#collapseShowSubPanels > div > div:nth-child(9)').click()");
+    }
+
+    public void openLead(){
+        WebElement element = driver.findElement(leadSubs);
+        jse.executeScript("arguments[0].scrollIntoView(true);", element);
+        jse.executeScript("document.querySelector('#collapseShowSubPanels > div > div:nth-child(12)').click()");
+    }
+
+    public void closeAllTables(){
+        try{
+            WebElement btn = driver.findElement(By.cssSelector("button.close-button"));
+            jse.executeScript("arguments[0].scrollIntoView(true);", btn);
+            wait.until(ExpectedConditions.elementToBeClickable(btn));
+            jse.executeScript("document.querySelector('button.close-button').click()");
+            closeAllTables();
+        }catch (StaleElementReferenceException e) {
+            closeAllTables();
+        }catch (NoSuchElementException e){
+            return;
+        }
+
+    }
+
+    public List<WebElement> getAllLinkContact(){
+        return driver.findElements(By.cssSelector("a.field-link[href*='contacts/record']"));
+    }
+
+    public List<WebElement> getAllLinkLead(){
+        return driver.findElements(By.cssSelector("a.field-link[href*='leads/record']"));
     }
 
     public By getContactsSubs() {
         return contactsSubs;
     }
 
-    public void closeAllTables(){
-
-        List<WebElement> closeButtons = driver.findElements(By.cssSelector("button.close-button"));
-
-        for (WebElement btn:
-             closeButtons) {
-            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", btn);
-            btn.click();
-        }
-    }
-
     public By getCloseButtons() {
         return closeButtons;
+    }
+
+    public By getLeadSubs() {
+        return leadSubs;
+    }
+
+    public By getLinkContact() {
+        return linkContact;
     }
 }

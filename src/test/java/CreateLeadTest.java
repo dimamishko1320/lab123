@@ -41,8 +41,8 @@ public class CreateLeadTest extends WebDriverSettings{
         createLeadPage.enterName(name);
         createLeadPage.enterPhone(officePhone);
         createLeadPage.clickSave();
-        wait.until(ExpectedConditions.urlContains("https://suite8demo.suiteondemand.com/#/leads/record/"));
         LeadPage leadPage = new LeadPage(driver);
+        wait.until(ExpectedConditions.presenceOfElementLocated(leadPage.getPhoneSaved()));
         Assert.assertEquals(leadPage.getPhoneText(), officePhone);
         Assert.assertEquals(leadPage.getNameText(), name);
     }

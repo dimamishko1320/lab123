@@ -12,7 +12,7 @@ import java.time.Duration;
 public class WebDriverSettings {
     ChromeDriver driver;
     WebDriverWait wait;
-    JavascriptExecutor jse = (JavascriptExecutor)driver;
+    JavascriptExecutor jse;
 
     @Before
     public void setUp(){
@@ -32,8 +32,8 @@ public class WebDriverSettings {
         wait.until(ExpectedConditions.urlToBe("https://suite8demo.suiteondemand.com/#/home"));
     }
 
-//    @After
-//    public void close(){
-//        driver.quit();
-//    }
+    @After
+    public void close(){
+        driver.quit();
+    }
 }
