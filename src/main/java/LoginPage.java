@@ -1,13 +1,11 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 public class LoginPage {
 
-    private By loginInput = By.xpath("//input[@aria-label='Username']");
-    private By passwordInput = By.xpath("//input[@aria-label='Password']");
-    private By loginBtn = By.id("login-button");
+    private final By loginInput = By.xpath("//input[@aria-label='Username']");
+    private final By passwordInput = By.xpath("//input[@aria-label='Password']");
+    private final By loginBtn = By.id("login-button");
 
     WebDriver driver;
 

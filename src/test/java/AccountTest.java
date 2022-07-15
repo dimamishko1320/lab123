@@ -1,9 +1,8 @@
 import org.junit.Assert;
-import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.testng.annotations.Test;
 
 import java.util.Arrays;
 import java.util.List;
@@ -19,7 +18,7 @@ public class AccountTest extends WebDriverSettings {
         String contactID = "270004e9-a806-f118-68c9-625443eafad9";
         String leadID;
         CreateLeadPage createLeadPage = new CreateLeadPage(driver);
-        authorizate();
+        authorize();
         driver.get("https://suite8demo.suiteondemand.com/#/leads/edit?return_module=Leads&return_action=DetailView");
         wait.until(ExpectedConditions.elementToBeClickable(createLeadPage.getSaveBtn()));
         String name = "Dima";
@@ -66,18 +65,18 @@ public class AccountTest extends WebDriverSettings {
         accountPage.closeAllTables();
         accountPage.openContact();
         List<WebElement> linksContacts = accountPage.getAllLinkContact();
-        Assert.assertTrue(isAttributeContain(linksContacts, "href", contactID ));
+        Assert.assertTrue(isAttributeContain(linksContacts, contactID ));
         accountPage.closeAllTables();
         accountPage.openLead();
         List<WebElement> linkLeads = accountPage.getAllLinkLead();
-        Assert.assertTrue(isAttributeContain(linkLeads, "href", leadID ));
+        Assert.assertTrue(isAttributeContain(linkLeads, leadID ));
     }
 
-    private boolean isAttributeContain(List<WebElement> element, String attribute, String key ) {
+    private boolean isAttributeContain(List<WebElement> element, String key) {
         for (WebElement el:
              element) {
             try {
-                String value = el.getAttribute(attribute);
+                String value = el.getAttribute("href");
                 if (value != null){
                     if(value.contains(key)) {
                         return true;

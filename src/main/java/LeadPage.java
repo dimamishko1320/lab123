@@ -1,12 +1,11 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 public class LeadPage {
-    private By phoneSaved = By.cssSelector("scrm-phone-detail");
-    private By nameSaved = By.className("dynamic-field-name-last_name");
-    private By actionBtn = By.cssSelector("scrm-dropdown-button > div > button");
-    private By convertLeadBtn = By.cssSelector(" a:nth-child(5) > div > div");
+    private final By phoneSaved = By.cssSelector("scrm-phone-detail");
+    private final By nameSaved = By.className("dynamic-field-name-last_name");
+    private final By actionBtn = By.cssSelector("scrm-dropdown-button > div > button");
+    private final By convertLeadBtn = By.cssSelector(" a:nth-child(5) > div > div");
 
     WebDriver driver;
 

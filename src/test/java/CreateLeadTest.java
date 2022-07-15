@@ -1,8 +1,6 @@
 import org.junit.Assert;
-import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.testng.annotations.Test;
 
 public class CreateLeadTest extends WebDriverSettings{
 
@@ -12,7 +10,7 @@ public class CreateLeadTest extends WebDriverSettings{
     @Test
     public void validateData(){
         CreateLeadPage createLeadPage = new CreateLeadPage(driver);
-        authorizate();
+        authorize();
         driver.get("https://suite8demo.suiteondemand.com/#/leads/edit?return_module=Leads&return_action=DetailView");
         wait.until(ExpectedConditions.elementToBeClickable(createLeadPage.getSaveBtn()));
         createLeadPage.clickSave();
@@ -26,7 +24,7 @@ public class CreateLeadTest extends WebDriverSettings{
     @Test
     public void createContact(){
         CreateLeadPage createLeadPage = new CreateLeadPage(driver);
-        authorizate();
+        authorize();
         driver.get("https://suite8demo.suiteondemand.com/#/leads/edit?return_module=Leads&return_action=DetailView");
         wait.until(ExpectedConditions.elementToBeClickable(createLeadPage.getSaveBtn()));
         String name = "Dima";

@@ -4,11 +4,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.List;
 
 public class AccountPage {
-    private By contactsSubs = By.xpath("//*[@id='collapseShowSubPanels']/div/div[9]");
-    private By leadSubs = By.xpath("//*[@id='collapseShowSubPanels']/div/div[12]");
-    private By closeButtons = By.cssSelector("button.close-button");
-    private By linkContact = By.cssSelector("a.field-link[href*='contacts/record']");
-    private WebDriver driver;
+    private final By contactsSubs = By.xpath("//*[@id='collapseShowSubPanels']/div/div[9]");
+    private final By leadSubs = By.xpath("//*[@id='collapseShowSubPanels']/div/div[12]");
+    private final By closeButtons = By.cssSelector("button.close-button");
+    private final By linkContact = By.cssSelector("a.field-link[href*='contacts/record']");
+    private final WebDriver driver;
     JavascriptExecutor jse ;
     WebDriverWait wait;
 
