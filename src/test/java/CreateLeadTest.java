@@ -7,10 +7,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 public class CreateLeadTest extends WebDriverSettings{
 
     /*
-    Проверка заполнения обязательных полей
-      Переходим на страниц создания предварительного контакта
-      Нажимаем кнопку Save
-      Видим, что не происходит создание контакта
+    Проверка заполнения обязательных полей на страницы создания предварительного контакта
      */
     @Test
     public void validateData(){
@@ -25,10 +22,6 @@ public class CreateLeadTest extends WebDriverSettings{
 
     /*
     Проверка корректности создания нового предварительного контакта
-      Переходим на страниц создания контакта
-      Заполняем phone и name
-      Нажимаем кнопку save и переходим на страницу контакта
-      Сравниванием изначально поданные значения с тем, что отображается на данной странице
      */
     @Test
     public void createContact(){

@@ -7,11 +7,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 public class AuthorizationTest extends WebDriverSettings{
 
     /*
-    Проверка авторизации и перенаправления
-        Переходим на страницу авторизации
-        Вводим в поле логин и пароль will/will
-        Кликаем на кнопку Log in
-        Дожидаемся пока нас перекинет на страницу home
+    Проверка авторизации и перенаправления на домашнюю страницу
      */
     @Test
     public void authorization(){

@@ -9,10 +9,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
+//Класс настроек для Selenium-тестов
 public class WebDriverSettings {
     ChromeDriver driver;
     WebDriverWait wait;
     JavascriptExecutor jse;
+
 
     @Before
     public void setUp(){

@@ -5,6 +5,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class СonversionLeadTest extends WebDriverSettings{
+    /*
+    Проверка преобразования предварительного контакта
+    Проверка правильности заполненных из предконтакта полей для создания Контрагента
+     */
 
     @Test
     public void createContact(){

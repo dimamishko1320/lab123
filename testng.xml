@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="D:/Projects/lab123">
+                <classes>
+                    <class name="AuthorizationTest"></class>
+                    <class name="AccountTest"></class>
+                    <class name="CreateLeadTest"></class>
+                    <class name="СonversionLeadTest"></class>
+                </classes>
+    </test>
+</suite>
