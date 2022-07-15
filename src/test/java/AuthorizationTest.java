@@ -1,16 +1,8 @@
-package ru.lab123;
-
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
 
 public class AuthorizationTest extends WebDriverSettings{
 
@@ -23,14 +15,12 @@ public class AuthorizationTest extends WebDriverSettings{
      */
     @Test
     public void authorization(){
+        LoginPage loginPage = new LoginPage(driver);
         driver.get("https://suite8demo.suiteondemand.com/#/Login");
-        wait.until(ExpectedConditions.elementToBeClickable(By.id("login-button")));
-        WebElement loginInput = driver.findElement(By.xpath("//input[@aria-label='Username']"));
-        WebElement passwordInput = driver.findElement(By.xpath("//input[@aria-label='Password']"));
-        WebElement loginBtn = driver.findElement(By.id("login-button"));
-        loginInput.sendKeys("will");
-        passwordInput.sendKeys("will");
-        loginBtn.click();
+        wait.until(ExpectedConditions.elementToBeClickable(loginPage.getLoginBtn()));
+        loginPage.enterUsername("will");
+        loginPage.enterPassword("will");
+        loginPage.clickLogin();
         wait.until(ExpectedConditions.urlToBe("https://suite8demo.suiteondemand.com/#/home"));
 
     }
